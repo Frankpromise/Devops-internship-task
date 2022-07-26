@@ -167,7 +167,7 @@ EXTRA 3. For the execution of playbooks, dynamic inventory must be used (GALAXY 
 The result of this task will be ansible files in your GitHub.
  
 
-## [Task 6: Jenkins. Automate, Manage and Control](Task6)
+## [Task 6: Jenkins. Automate, Manage and Control](https://github.com/Frankpromise/Devops-internship-task/tree/master/TASK6)
  
 Important points:
 1.	Read about Jenkins. What is Jenkins and what is it used for? Ways of using. What is a declarative and imperative approach? 
