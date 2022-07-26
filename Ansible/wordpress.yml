@@ -1,0 +1,72 @@
+---
+- hosts: all
+  become: true
+  vars_prompt:
+
+    - name: wp_db_name
+      prompt: Enter the DB name
+
+    - name: db_user
+      prompt: Enter the DB username
+    
+    - name: db_password
+      prompt: Enter the DB password
+
+vars:
+    db_host: db
+    wp_name: wordpress
+    docker_network: wordpress_net
+    #wp_host_port: "{{ lookup('env','WORDPRESS_PORT') | default(8080)}}"
+    wp_container_port: 80
+
+tasks:
+
+    - name: "Create a network"
+      docker_network:
+        name: "{{ docker_network }}"
+
+    - name: Pull wordpress image
+      docker_image:
+        name: wordpress
+        source: pull
+
+    - name: Pull MySQL image
+      docker_image:
+        name: mysql:5.7
+        source: pull    
+
+
+    - name: Create DB container
+      docker_container:
+        name: "{{ db_host }}"
+        image: mysql:5.7
+        state: started
+        # ports:
+        #   - "3306"
+        network_mode: "{{ docker_network }}"
+        env:
+        MYSQL_USER: "{{ db_user }}"
+        MYSQL_PASSWORD: "{{ db_password }}"
+        MYSQL_DATABASE: "{{ wp_db_name }}"
+        MYSQL_RANDOM_ROOT_PASSWORD: '1'
+        volumes:
+        - db:/var/lib/mysql:rw
+        restart_policy: always
+
+
+    - name: Create Wordpress container
+      docker_container:
+        name: "{{ wp_name }}"
+        image: wordpress:latest
+        state: started
+        ports:
+        - "80:80" 
+        restart_policy: always
+        network_mode: "{{ docker_network }}"
+        env:
+        WORDPRESS_DB_HOST: "{{ db_host }}:3306"
+        WORDPRESS_DB_USER: "{{ db_user }}"
+        WORDPRESS_DB_PASSWORD: "{{ db_password }}"
+        WORDPRESS_DB_NAME: "{{ wp_db_name }}"
+        volumes:
+        - wordpress:/var/www/html
