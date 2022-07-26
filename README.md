@@ -90,8 +90,9 @@ Both instances must have a tag with names.
 5.	On EC2 Ubuntu install Docker, installation should be done according to the recommendation of the official Docker manuals 
 
 
-[using Terraform modules](https://github.com/Frankpromise/Devops-internship-task/tree/master/Terraform-modules)
+## [using Terraform modules](https://github.com/Frankpromise/Devops-internship-task/tree/master/Terraform-modules)
 EXTRA:
+
 6.	Complete  step 1, but AMI ID cannot be hardcoded. You can hardcode operation system name, version, etc. 
 7.	Step 3 read as: 
 EC2 CentOS should have outgoing and incoming access: ICMP, TCP/22, 80, 443, only to EC2 Ubuntu. 
