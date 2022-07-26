@@ -4,7 +4,7 @@
 # Exadel-Tasks
 
 
-## [Task 1: Git/GitHub](Task1) 
+## [Task 1: Git/GitHub](https://github.com/Frankpromise/Devops-internship-task/tree/master/Git-Github) 
 Additional information:
 1.	Read about Git https://git-scm.com/doc
  
