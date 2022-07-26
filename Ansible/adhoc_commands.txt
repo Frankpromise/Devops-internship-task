@@ -1,0 +1,8 @@
+1. ansible -i inventory -m ping ansible_ssh_private_file
+2. ansible -i inventory -m sudo apt -a name=httpd state=present web01 --become 
+3. ansible -i inventory -m service -a name=httpd state=started enabled=yes web01 --become
+4. ansible -i inventory -m copy -a src=index.html dest=/var/www/html/index.html web01 --become
+
+5. play book is a collection of plays
+
+ansible -i inventory -m apt -a name=httpd state=absent --become web01

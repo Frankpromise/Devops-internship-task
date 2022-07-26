@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Install aptitude
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+    - name: Install system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+    - name: Docker GPG apt Key Adding
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Adding Docker Repo
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+
+
+    - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Pull hello world image
+      docker_image:
+        name: hello-world
+        source: pull
+
+    - name: Create Hello World container
+      docker_container:
+        name: hello-world
+        image: hello-world
+        state: started
+        ports:
+        - "80:80"
