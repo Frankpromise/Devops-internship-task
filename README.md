@@ -30,7 +30,7 @@ Tasks:
 
 
 
-## [Task 2: AWS Cloud](Task2)
+## [Task 2: AWS Cloud](https://github.com/Frankpromise/Devops-internship-task/tree/master/AWS-cloud)
 (Note. The assignment is written using AWS as an example. You can complete the assignment using any cloud services.)
 
 Before completing this task, it is recommend check this video:
