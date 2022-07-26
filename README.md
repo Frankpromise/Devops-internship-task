@@ -69,7 +69,7 @@ The result of this task is a link in your github to the “Hello World” web pa
 
 
 
-## [Task 3: Terraform/IaC introduction](Task3)
+## [Task 3: Terraform/IaC introduction](https://github.com/Frankpromise/Devops-internship-task/tree/master/Terraform)
 (Note. The assignment is written using AWS as an example. You can complete the assignment using any cloud services.)
 
 Important moments:
