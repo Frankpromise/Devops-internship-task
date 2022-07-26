@@ -89,6 +89,8 @@ Both instances must have a tag with names.
 - Create a web page with the text “Hello World” and information about the current version of the operating system. This page must be visible from the Internet. 
 5.	On EC2 Ubuntu install Docker, installation should be done according to the recommendation of the official Docker manuals 
 
+
+[using Terraform modules](https://github.com/Frankpromise/Devops-internship-task/tree/master/Terraform-modules)
 EXTRA:
 6.	Complete  step 1, but AMI ID cannot be hardcoded. You can hardcode operation system name, version, etc. 
 7.	Step 3 read as: 
